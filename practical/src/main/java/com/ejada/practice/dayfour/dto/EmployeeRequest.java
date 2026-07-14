@@ -1,4 +1,4 @@
-package com.ejada.practice.dto;
+package com.ejada.practice.dayfour.dto;
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Email;
@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 
 /**
  * Payload accepted on create (POST) and update (PUT) requests.
- * Kept separate from {@link com.ejada.practice.model.Employee} so the
+ * Kept separate from {@link com.ejada.practice.dayfour.model.Employee} so the
  * wire format can evolve independently from the persistence model.
  */
 @Data

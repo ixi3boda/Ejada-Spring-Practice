@@ -1,4 +1,4 @@
-package com.ejada.practice.exception;
+package com.ejada.practice.dayfour.exception;
 
 /**
  * Thrown when an operation would violate a uniqueness constraint (e.g.

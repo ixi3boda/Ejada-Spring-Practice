@@ -1,4 +1,4 @@
-package com.ejada.practice;
+package com.ejada.practice.dayfour;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

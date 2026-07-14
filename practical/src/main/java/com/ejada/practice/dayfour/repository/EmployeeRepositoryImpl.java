@@ -1,7 +1,6 @@
-package com.ejada.practice.repository;
+package com.ejada.practice.dayfour.repository;
 
-import com.ejada.practice.model.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ejada.practice.dayfour.model.Employee;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -37,9 +36,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     private static final String DELETE = "DELETE FROM employees WHERE id = ?";
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
     private final EmployeeRowMapper rowMapper = new EmployeeRowMapper();
+
+    public EmployeeRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public List<Employee> findAll() {

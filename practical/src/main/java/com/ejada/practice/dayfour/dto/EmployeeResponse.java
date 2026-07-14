@@ -1,4 +1,4 @@
-package com.ejada.practice.dto;
+package com.ejada.practice.dayfour.dto;
 
 
 import lombok.*;

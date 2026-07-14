@@ -1,7 +1,7 @@
-package com.ejada.practice.service;
+package com.ejada.practice.dayfour.service;
 
-import com.ejada.practice.dto.EmployeeRequest;
-import com.ejada.practice.dto.EmployeeResponse;
+import com.ejada.practice.dayfour.dto.EmployeeRequest;
+import com.ejada.practice.dayfour.dto.EmployeeResponse;
 
 import java.util.List;
 

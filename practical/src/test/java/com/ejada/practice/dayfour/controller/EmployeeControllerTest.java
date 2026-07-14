@@ -1,11 +1,11 @@
-package com.ejada.practice.controller;
+package com.ejada.practice.dayfour.controller;
 
-import com.ejada.practice.dto.EmployeeRequest;
-import com.ejada.practice.dto.EmployeeResponse;
-import com.ejada.practice.exception.DuplicateResourceException;
-import com.ejada.practice.exception.GlobalExceptionHandler;
-import com.ejada.practice.exception.ResourceNotFoundException;
-import com.ejada.practice.service.EmployeeService;
+import com.ejada.practice.dayfour.dto.EmployeeRequest;
+import com.ejada.practice.dayfour.dto.EmployeeResponse;
+import com.ejada.practice.dayfour.exception.DuplicateResourceException;
+import com.ejada.practice.dayfour.exception.GlobalExceptionHandler;
+import com.ejada.practice.dayfour.exception.ResourceNotFoundException;
+import com.ejada.practice.dayfour.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,7 +47,7 @@ public class EmployeeControllerTest {
     private EmployeeService employeeService;
 
     @InjectMocks
-    private com.ejada.practice.controller.EmployeeController employeeController;
+    private com.ejada.practice.dayfour.controller.EmployeeController employeeController;
 
     private final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
     private EmployeeResponse employeeResponse;

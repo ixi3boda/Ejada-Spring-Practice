@@ -1,12 +1,11 @@
-package com.ejada.practice.service;
+package com.ejada.practice.dayfour.service;
 
-import com.ejada.practice.dto.EmployeeRequest;
-import com.ejada.practice.dto.EmployeeResponse;
-import com.ejada.practice.exception.DuplicateResourceException;
-import com.ejada.practice.exception.ResourceNotFoundException;
-import com.ejada.practice.model.Employee;
-import com.ejada.practice.repository.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ejada.practice.dayfour.dto.EmployeeRequest;
+import com.ejada.practice.dayfour.dto.EmployeeResponse;
+import com.ejada.practice.dayfour.exception.DuplicateResourceException;
+import com.ejada.practice.dayfour.exception.ResourceNotFoundException;
+import com.ejada.practice.dayfour.model.Employee;
+import com.ejada.practice.dayfour.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,8 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
+
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -56,9 +58,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public EmployeeResponse updateEmployee(Long id, EmployeeRequest request) {
-        findEmployeeOrThrow(id);
+        Employee existing = findEmployeeOrThrow(id);
+
+        boolean emailChanged = !existing.getEmail().equalsIgnoreCase(request.getEmail());
+        if (emailChanged && employeeRepository.existsByEmail(request.getEmail())) {
+            throw new DuplicateResourceException(
+                    "An employee with email '" + request.getEmail() + "' already exists");
+        }
 
         Employee employee = Employee.builder()
+                .id(id)
                 .fullName(request.getFullName())
                 .email(request.getEmail())
                 .salary(request.getSalary())

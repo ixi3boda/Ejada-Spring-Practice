@@ -1,4 +1,4 @@
-package com.ejada.practice.exception;
+package com.ejada.practice.dayfour.exception;
 
 /**
  * Thrown when a requested resource (e.g. an employee id) does not exist.

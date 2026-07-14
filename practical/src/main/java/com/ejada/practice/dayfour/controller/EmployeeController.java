@@ -1,10 +1,9 @@
-package com.ejada.practice.controller;
+package com.ejada.practice.dayfour.controller;
 
-import com.ejada.practice.dto.EmployeeRequest;
-import com.ejada.practice.dto.EmployeeResponse;
-import com.ejada.practice.service.EmployeeService;
+import com.ejada.practice.dayfour.dto.EmployeeRequest;
+import com.ejada.practice.dayfour.dto.EmployeeResponse;
+import com.ejada.practice.dayfour.service.EmployeeService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * Thin HTTP layer: translates requests/responses and delegates all business
  * logic to {@link EmployeeService}. Errors are not handled here - they
- * are up to {@link com.ejada.practice.exception.GlobalExceptionHandler}.
+ * are up to {@link com.ejada.practice.dayfour.exception.GlobalExceptionHandler}.
  */
 @RestController
 @RequestMapping("/api/v1/employees")
@@ -29,8 +28,11 @@ public class EmployeeController {
 
     /** Health endpoint for quick verification. */
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping
     public ResponseEntity<List<EmployeeResponse>> getAllEmployees() {

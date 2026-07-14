@@ -1,4 +1,4 @@
-package com.ejada.practice.config;
+package com.ejada.practice.dayfour.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

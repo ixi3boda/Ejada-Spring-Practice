@@ -1,4 +1,4 @@
-package com.ejada.practice;
+package com.ejada.practice.dayfour;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.ejada.practice.aspect;
+package com.ejada.practice.dayfour.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -18,7 +18,7 @@ import java.util.Arrays;
  *
  * Instead of adding
  * try/catch + log statements inside every service method, a single aspect
- * intercepts calls to every method under {@code com.ejada.practice.service}
+ * intercepts calls to every method under {@code com.ejada.practice.dayfour.service}
  * and logs the call, its arguments, execution time, and any exception -
  * without the service classes knowing this is happening.
  */
@@ -31,7 +31,7 @@ public class LoggingAspect {
     /**
      * Matches every method of every class in the service package.
      */
-    @Pointcut("execution(* com.ejada.practice.service..*(..))")
+    @Pointcut("execution(* com.ejada.practice.dayfour.service..*(..))")
     public void serviceLayer() {
     }
 
@@ -52,9 +52,6 @@ public class LoggingAspect {
             log.info("{} completed in {} ms", signature, elapsedMs);
             return result;
         } catch (Throwable ex) {
-            long elapsedMs = System.currentTimeMillis() - start;
-            log.warn("{} failed after {} ms with {}: {}",
-                    signature, elapsedMs, ex.getClass().getSimpleName(), ex.getMessage());
             throw ex;
         }
     }

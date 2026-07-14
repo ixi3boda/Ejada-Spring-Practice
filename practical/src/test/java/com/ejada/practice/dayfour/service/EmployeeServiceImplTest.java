@@ -1,11 +1,11 @@
-package com.ejada.practice.service;
+package com.ejada.practice.dayfour.service;
 
-import com.ejada.practice.dto.EmployeeRequest;
-import com.ejada.practice.dto.EmployeeResponse;
-import com.ejada.practice.exception.DuplicateResourceException;
-import com.ejada.practice.exception.ResourceNotFoundException;
-import com.ejada.practice.model.Employee;
-import com.ejada.practice.repository.EmployeeRepository;
+import com.ejada.practice.dayfour.dto.EmployeeRequest;
+import com.ejada.practice.dayfour.dto.EmployeeResponse;
+import com.ejada.practice.dayfour.exception.DuplicateResourceException;
+import com.ejada.practice.dayfour.exception.ResourceNotFoundException;
+import com.ejada.practice.dayfour.model.Employee;
+import com.ejada.practice.dayfour.repository.EmployeeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -37,7 +37,7 @@ public class EmployeeServiceImplTest {
     private EmployeeRepository employeeRepository;
 
     @InjectMocks
-    private com.ejada.practice.service.EmployeeServiceImpl employeeService;
+    private com.ejada.practice.dayfour.service.EmployeeServiceImpl employeeService;
 
     private Employee employee;
     private EmployeeRequest employeeRequest;

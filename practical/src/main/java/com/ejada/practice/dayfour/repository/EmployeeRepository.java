@@ -1,6 +1,6 @@
-package com.ejada.practice.repository;
+package com.ejada.practice.dayfour.repository;
 
-import com.ejada.practice.model.Employee;
+import com.ejada.practice.dayfour.model.Employee;
 
 import java.util.List;
 import java.util.Optional;
